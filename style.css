@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+}
+
+.title h1 {
+    color: red;
+}
+
+.title h4 {
+    color: blue;
+}
