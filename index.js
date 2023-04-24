@@ -15,7 +15,7 @@ let foodY;
 
 let gameover = false;
 
-window.onload = function () {
+const GameStart = function () {
     canvas = document.getElementById("canvas");
     canvas.width = canvasTotalRow * blockSize;
     canvas.height = canvasTatalCol * blockSize;
@@ -27,6 +27,8 @@ window.onload = function () {
 
     setInterval(update, 1000 / 10);
 };
+
+window.onload = GameStart();
 
 function update() {
     if (gameover) {
@@ -44,30 +46,75 @@ function update() {
         generateFood();
     }
 
+    // console.log(snakeBody);
+
+    for (let i = snakeBody.length - 1; i > 0; i--) {
+        snakeBody[i] = snakeBody[i - 1];
+    }
+    if (snakeBody.length) {
+        snakeBody[0] = [snakeX, snakeY];
+    }
+
     context.fillStyle = "white";
     snakeX += speedX * blockSize;
     snakeY += speedY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
+    for (let i = 0; i < snakeBody.length; i++) {
+        context.fillRect(
+            snakeBody[i][0],
+            snakeBody[i][1],
+            blockSize,
+            blockSize
+        );
+    }
+
+    if (
+        snakeX < 0 ||
+        snakeX > canvasTotalRow * blockSize - 1 ||
+        snakeY < 0 ||
+        snakeY > canvasTatalCol * blockSize - 1
+    ) {
+        gameover = true;
+        alert("Game Over");
+    }
+
+    for (let i = 0; i < snakeBody.length; i++) {
+        if (snakeX === snakeBody[i][0] && snakeY === snakeBody[i][1]) {
+            gameover = true;
+            alert("Game Over!....Snake eat itself");
+            GameStart();
+        }
+    }
 }
 
 function generateFood() {
     foodX = Math.floor(Math.random() * canvasTotalRow) * blockSize;
     foodY = Math.floor(Math.random() * canvasTatalCol) * blockSize;
 
-    console.log(foodX, foodY);
+    // console.log(foodX, foodY);
 }
 
 function setDirection(event) {
-    if (event.code == "ArrowUp" && speedY != 1) {
+    if ((event.code == "ArrowUp" || event.code == "KeyW") && speedY != 1) {
         speedX = 0;
         speedY = -1;
-    } else if (event.code == "ArrowDown" && speedY != -1) {
+    } else if (
+        (event.code == "ArrowDown" || event.code == "KeyS") &&
+        speedY != -1
+    ) {
         speedX = 0;
         speedY = 1;
-    } else if (event.code == "ArrowLeft" && speedX != 1) {
+    } else if (
+        (event.code == "ArrowLeft" || event.code == "KeyA") &&
+        speedX != 1
+    ) {
         speedX = -1;
         speedY = 0;
-    } else if (event.code == "ArrowRight" && speedX != -1) {
+    } else if (
+        (event.code == "ArrowRight" || event.code == "KeyD") &&
+        speedX != -1
+    ) {
         speedX = 1;
         speedY = 0;
     }
