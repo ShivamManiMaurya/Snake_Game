@@ -11,8 +11,36 @@
         <div class="title">
             <h1>Snake Game</h1>
             <h4>By Shivam Maurya</h4>
+            <h4 id="score">Score: <span id="scoreCount">0</span></h4>
         </div>
-        <canvas id="canvas"></canvas>
+        <div class="canvas">
+            <canvas id="canvas"></canvas>
+            <div class="rules-div">
+                <ul class="rules">
+                    <li>When window loads game starts.</li>
+                    <li>
+                        For movement of the snake you can use the arrow keys and
+                        also the WASD keys.
+                    </li>
+                    <li>
+                        When the player eats the food the size of snake will
+                        grow of one block.
+                    </li>
+                    <li>
+                        When the snake hit the walls then he will die and the
+                        alert pops up.
+                    </li>
+                    <li>
+                        When the snake eats himself then also he will die and
+                        the alert pops up.
+                    </li>
+                    <li>
+                        After player death player require to reload the page for
+                        restarting the game.
+                    </li>
+                </ul>
+            </div>
+        </div>
         <script src="/index.js"></script>
     </body>
 </html>

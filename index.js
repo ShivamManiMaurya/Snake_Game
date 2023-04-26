@@ -2,8 +2,8 @@ let canvas;
 let context;
 
 const blockSize = 25;
-const canvasTotalRow = 17;
-const canvasTatalCol = 17;
+const canvasTotalRow = 20;
+const canvasTatalCol = 20;
 const snakeBody = [];
 
 let snakeX = blockSize * 5;
@@ -12,6 +12,7 @@ let speedX = 0;
 let speedY = 0;
 let foodX;
 let foodY;
+let score = 0;
 
 let gameover = false;
 
@@ -43,6 +44,9 @@ function update() {
 
     if (snakeX === foodX && snakeY === foodY) {
         snakeBody.push([foodX, foodY]);
+        score++;
+        document.getElementById("scoreCount").innerText = score;
+
         generateFood();
     }
 
@@ -83,7 +87,6 @@ function update() {
         if (snakeX === snakeBody[i][0] && snakeY === snakeBody[i][1]) {
             gameover = true;
             alert("Game Over!....Snake eat itself");
-            GameStart();
         }
     }
 }
