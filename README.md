@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 -   [Github Solution](https://github.com/ShivamManiMaurya/Snake_Game)
--   [Live Site](https://netflix-clone-ece17.web.app/)
+-   [Live Site](https://shivammanimaurya.github.io/Snake_Game/)
 
 ## My process
 
@@ -45,6 +45,6 @@ Users should be able to:
 
 ## Author
 
--   Website - [Shivam Maurya](https://www.your-site.com)
+-   Website - [Shivam Maurya](https://shivammanimaurya.github.io/my_portfolio_website/)
 -   GitHub Page - [Shivam Maurya GitHub](https://github.com/ShivamManiMaurya)
 -   Linkedin - [@shivammanimaurya](https://www.linkedin.com/in/shivammanimaurya)
