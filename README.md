@@ -1,4 +1,4 @@
-# Netflix Clone in React
+# Snake Game
 
 This is a Javascript project. In this game, the player can move and eat the food and try to not bump in the walls and don't eat itself.
 
